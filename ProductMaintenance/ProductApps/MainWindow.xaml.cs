@@ -31,6 +31,8 @@ namespace ProductApps
         {
             decimal totalCharge;
             decimal wrapTotal;
+            decimal GST;
+            
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -45,6 +47,9 @@ namespace ProductApps
             totalChargeTextBlock.Text = totalCharge.ToString();
             wrapTotal = totalCharge + 5;
             wrapTotalTextBlock.Text = wrapTotal.ToString();
+            GST = wrapTotal + (wrapTotal/10);
+            totalGSTTextBlock.Text = GST.ToString();
+            
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
