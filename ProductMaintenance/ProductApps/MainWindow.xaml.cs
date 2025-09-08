@@ -29,6 +29,7 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
+            decimal totalCharge;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -39,6 +40,8 @@ namespace ProductApps
             {
                 MessageBox.Show("Enter data again", "Data Entry Error");
             }
+            totalCharge = cProduct.TotalPayment + 25;
+            totalChargeTextBlock.Text = totalCharge.ToString();
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
